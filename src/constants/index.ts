@@ -19,6 +19,11 @@ export const CONTRACT_ADDRESS = 'ST3PQNWVZ0T5GP5Z1D389ZKECZWC1P3HKY5DG5BW';
 export const CONTRACT_NAME = 'supply-chain';
 export const FUNCTION_STATUS_UPDATE = 'update-item-status';
 export const FUNCTION_REGISTER_ITEM = 'register-item';
+export const FUNCTION_VERIFY_QUALITY = 'verify-quality';
+export const FUNCTION_APPROVE_ITEM = 'approve-item';
+export const FUNCTION_CREATE_BATCH = 'create-batch';
+export const FUNCTION_BATCH_UPDATE = 'batch-update-status';
+export const FUNCTION_SET_USER_ROLE = 'set-user-role';
 
 // Role permissions for status updates
 export const ROLE_PERMISSIONS: Record<UserRole, ItemStatus[]> = {
@@ -41,6 +46,9 @@ export const ROLE_PERMISSIONS: Record<UserRole, ItemStatus[]> = {
   ],
   [UserRole.Consumer]: [
     ItemStatus.ReceivedByConsumer,
+  ],
+  [UserRole.Inspector]: [
+    // Inspectors can verify quality but not change status
   ],
   [UserRole.Admin]: [
     ItemStatus.Created,
